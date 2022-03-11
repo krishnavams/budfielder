@@ -25,6 +25,15 @@ public class PageHomePage {
 	private WebElement newCampaign;
 	@FindBy(className = "title hline")
 	private WebElement createCampaign;
+	@FindBy(xpath="(//input[@name='Button'])[1]")
+	private WebElement save1;
+	@FindBy(xpath="(//input[@name='Button'])[2]")
+	private WebElement save_new1;
+	@FindBy(xpath="(//input[@name='Button'])[3]")
+	private WebElement save2;
+	@FindBy(xpath="(//input[@name='Button'])[4]")
+	private WebElement save_new2;
+
 
 	public PageHomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -64,6 +73,22 @@ public class PageHomePage {
 
 	public WebElement getCreateCampaign() {
 		return createCampaign;
+	}
+
+	public WebElement getSave1() {
+		return save1;
+	}
+
+	public WebElement getSaveNew1() {
+		return save_new1;
+	}
+
+	public WebElement getSave2() {
+		return save2;
+	}
+
+	public WebElement getSaveNew2() {
+		return save_new2;
 	}
 
 }

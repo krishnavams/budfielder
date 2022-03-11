@@ -1,6 +1,7 @@
 package com.budfielder.genaric;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.WebDriver;
@@ -21,10 +22,11 @@ public class BaseClass {
 	}
 	public static WebDriver driver;
 
-//	@BeforeMethod
-//	public void openBrowser() {
-//		driver = new ChromeDriver();
-//	}
+	@BeforeMethod
+	public void openBrowser() {
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	}
 
 	@BeforeTest
 	public void logIn() throws EncryptedDocumentException, IOException {
@@ -42,12 +44,12 @@ public class BaseClass {
 	public void LogOut() {
 		PageHomePage h1 = new PageHomePage(driver);
 		h1.getLogOut().click();
-		driver.close();
+//		driver.close();
 	}
 
-//	@AfterMethod
-//	public void closeBrowser() {
-//		driver.close();
-//	}
+	@AfterMethod
+	public void closeBrowser() {
+		driver.quit();
+	}
 
 }

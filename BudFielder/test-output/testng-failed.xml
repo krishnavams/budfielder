@@ -7,7 +7,9 @@
         <methods>
           <include name="createCampaingn"/>
           <include name="logIn"/>
+          <include name="closeBrowser"/>
           <include name="LogOut"/>
+          <include name="openBrowser"/>
         </methods>
       </class> <!-- com.budfielder.testscripts.CampaignModule -->
     </classes>
