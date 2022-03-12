@@ -25,15 +25,14 @@ public class PageHomePage {
 	private WebElement newCampaign;
 	@FindBy(className = "title hline")
 	private WebElement createCampaign;
-	@FindBy(xpath="(//input[@name='Button'])[1]")
+	@FindBy(xpath = "(//input[@name='Button'])[1]")
 	private WebElement save1;
-	@FindBy(xpath="(//input[@name='Button'])[2]")
+	@FindBy(xpath = "(//input[@name='Button'])[2]")
 	private WebElement save_new1;
-	@FindBy(xpath="(//input[@name='Button'])[3]")
+	@FindBy(xpath = "(//input[@name='Button'])[3]")
 	private WebElement save2;
-	@FindBy(xpath="(//input[@name='Button'])[4]")
+	@FindBy(xpath = "(//input[@name='Button'])[4]")
 	private WebElement save_new2;
-
 
 	public PageHomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);

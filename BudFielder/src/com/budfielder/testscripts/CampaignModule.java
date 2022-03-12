@@ -21,13 +21,11 @@ public class CampaignModule extends BaseClass {
 //		driver.switchTo().alert().accept();
 		String parent = driver.getWindowHandle();
 		Set<String> childs = driver.getWindowHandles();
-		
+
 //		childs.forEach(x->(x==parent)? :driver.close());
 		for (String string : childs) {
 			Reporter.log(string);
-			if (string.equals(parent)) {
-
-			} else {
+			if (!string.equals(parent)) {
 				driver.switchTo().window(string);
 				driver.close();
 			}

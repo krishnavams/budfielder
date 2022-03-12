@@ -6,10 +6,8 @@ import java.util.concurrent.TimeUnit;
 import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
@@ -25,7 +23,7 @@ public class BaseClass {
 	@BeforeMethod
 	public void openBrowser() {
 		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@BeforeTest
@@ -34,7 +32,7 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		driver.get("http://192.168.150.128:8080/crm/HomePage.do");
 		PageSignIn p1 = new PageSignIn(driver);
-		FileLib f = new FileLib();
+		FileLib f = new FileLib("./Support/GenaricData1.xlsx");
 		p1.getUserName().sendKeys(f.getExtranalData("Sheet1", 1, 2));
 		p1.getPassWord().sendKeys((String) f.getExtranalData("Sheet1", 1, 3));
 		p1.getSignIn().click();
@@ -44,7 +42,6 @@ public class BaseClass {
 	public void LogOut() {
 		PageHomePage h1 = new PageHomePage(driver);
 		h1.getLogOut().click();
-//		driver.close();
 	}
 
 	@AfterMethod
